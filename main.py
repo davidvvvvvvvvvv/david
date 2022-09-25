@@ -112,7 +112,8 @@ def get_ciba():
     r = get(url, headers=headers)
     note_en = r.json()["content"]
     note_ch = r.json()["note"]
-    return note_ch, note_en
+    texttt = "吾问无为谓"
+    return note_ch, note_en, texttt
  
  
 def send_message(to_user, access_token, region_name, texttt, weather, temp, wind_dir, note_ch, note_en):
@@ -123,7 +124,6 @@ def send_message(to_user, access_token, region_name, texttt, weather, temp, wind
     day = localtime().tm_mday
     today = datetime.date(datetime(year=year, month=month, day=day))
     week = week_list[today.isoweekday() % 7]
-    texttt = "吾问无为谓"
     # 获取在一起的日子的日期格式
     love_year = int(config["love_date"].split("-")[0])
     love_month = int(config["love_date"].split("-")[1])
@@ -227,11 +227,12 @@ if __name__ == "__main__":
     # 传入地区获取天气信息
     region = config["region"]
     texttt = config["texttt"]
-    print(region)
-    print(texttt)
     weather, temp, wind_dir = get_weather(region)
     note_ch = config["note_ch"]
     note_en = config["note_en"]
+    print(region)
+    print(texttt)
+    print(note_ch)
     if note_ch == "" and note_en == "":
         # 获取词霸每日金句
         note_ch, note_en = get_ciba()
