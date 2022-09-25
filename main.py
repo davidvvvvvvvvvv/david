@@ -149,6 +149,10 @@ def send_message(to_user, access_token, region_name, texttt, weather, temp, wind
                 "value": region_name,
                 "color": get_color()
             },
+            "texttt": {
+                "value": texttt,
+                "color": get_color()
+            },
             "weather": {
                 "value": weather,
                 "color": get_color()
