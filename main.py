@@ -115,12 +115,13 @@ def get_ciba():
     return note_ch, note_en
  
  
-def send_message(to_user, access_token, region_name, weather, temp, wind_dir, note_ch, note_en):
+def send_message(to_user, access_token, region_name, texttt, weather, temp, wind_dir, note_ch, note_en):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
     week_list = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
     year = localtime().tm_year
     month = localtime().tm_mon
     day = localtime().tm_mday
+    texttt = "我希望的"
     today = datetime.date(datetime(year=year, month=month, day=day))
     week = week_list[today.isoweekday() % 7]
     # 获取在一起的日子的日期格式
