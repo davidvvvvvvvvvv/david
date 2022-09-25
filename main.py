@@ -121,7 +121,6 @@ def send_message(to_user, access_token, region_name, texttt, weather, temp, wind
     year = localtime().tm_year
     month = localtime().tm_mon
     day = localtime().tm_mday
-    texttt = "我希望的"
     today = datetime.date(datetime(year=year, month=month, day=day))
     week = week_list[today.isoweekday() % 7]
     # 获取在一起的日子的日期格式
